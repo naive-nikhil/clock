@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    height: 100dvh;
+    display: grid;
+    place-content: center;
+    background-image: radial-gradient(#030712 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+h1 {
+    font-family: 'Bitcount Grid Double Ink', monospace;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    background-color: #000;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.digit-container {
+    margin: auto;
+    display: flex;
+    gap: 8px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 36px;
+    }
+}
+
+.digit-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 4px;
+    /* padding: 4px; */
+    /* background-color: #1d202a; */
+    border-radius: 8px;
+    position: relative;
+}
+
+.digit {
+    display: grid;
+    grid-template: repeat(6, 1fr) / repeat(4, 1fr);
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #0f0f0f;
+}
+
+.digit-group::before {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    font-family: 'Bitcount Grid Double Ink', monospace;
+    font-size: 32px;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.digit-group:nth-child(1)::before {
+    content: "Hours";
+}
+
+.digit-group:nth-child(2)::before {
+    content: "Minutes";
+}
+
+.digit-group:nth-child(3)::before {
+    content: "Seconds";
+}
+
+.clock {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px dashed #232323;
+
+    @media (max-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.clock-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: 0% -50%;
+    width: 46%;
+    height: 2px;
+    border-radius: 20px;
+    background-color: #a2a2a2;
+    transform-origin: center left;
+    transition: rotate 250ms;
+}
